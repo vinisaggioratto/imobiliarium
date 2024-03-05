@@ -1,16 +1,16 @@
 package com.vgs.imobiliarium.enums;
 
 public enum TipoImovel {
-
-    CASA("Casa"),
     APARTAMENTO("Apartamento"),
     BARRACAO("Barracão"),
-    TERRENO("Terreno"),
-    SITIO("Sítio"),
+    CASA("Casa"),
     CHACARA("Chácara"),
+    EMPRESA("Empresa"),
     FAZENDA("Fazenda"),
     SALA_COMERCIAL("Sala Comercial"),
-    EMPRESA("Empresa");
+    SITIO("Sítio"),
+    TERRENO("Terreno");
+
 
     private String tipoImovel;
 

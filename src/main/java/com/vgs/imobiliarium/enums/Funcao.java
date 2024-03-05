@@ -2,11 +2,11 @@ package com.vgs.imobiliarium.enums;
 
 public enum Funcao {
 
+    AUXILIAR_ADMINISTRATIVO("Auxiliar Administrativo"),
+    PROPRIETARIO("Proprietário"),
     SECRETARIA("Secretária"),
     VISTORIADOR("Vistoriador"),
-    MANUTENCAO("Zelador"),
-    AUXILIAR_ADMINISTRATIVO("Auxiliar Administrativo"),
-    PROPRIETARIO("Proprietário");
+    ZELADOR("Zelador");
 
     private String funcao;
     Funcao(String funcao) {

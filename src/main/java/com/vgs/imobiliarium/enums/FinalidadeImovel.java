@@ -1,8 +1,8 @@
 package com.vgs.imobiliarium.enums;
 
 public enum FinalidadeImovel {
-    VENDA("Venda"),
-    ALUGUEL("Aluguel");
+    ALUGUEL("Aluguel"),
+    VENDA("Venda");
 
     private String finalidade;
 

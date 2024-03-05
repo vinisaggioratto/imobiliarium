@@ -1,6 +1,7 @@
 package com.vgs.imobiliarium.enums;
 
 public enum StatusImovel {
+    ALUGADO("ALUGADO"),
     CANCELADO("Cancelado"),
     DISPONIVEL("Disponível"),
     PAUSADO("Pausado"),
