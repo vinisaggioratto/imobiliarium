@@ -40,7 +40,7 @@ CREATE TABLE imovel(
     lote VARCHAR(10) NULL,
     cidade VARCHAR(80) NULL,
     cep VARCHAR(10) NULL,
-    estado CHAR(2) NULL,
+    estado TINYINT NULL,
     observacoes VARCHAR(500) NULL,
     status_imovel VARCHAR(20) NOT NULL,
     caracteristicas_id BIGINT NOT NULL,
