@@ -42,4 +42,8 @@ public class Cadastro {
     private LocalDateTime dataCadastro;
     @Column(name = "data_update")
     private LocalDateTime dataUpdate;
+
+    public Cadastro(Long id) {
+        this.id = id;
+    }
 }

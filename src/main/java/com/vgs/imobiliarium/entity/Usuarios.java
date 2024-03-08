@@ -18,12 +18,11 @@ public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String username;
     private String password;
-    @OneToOne
-    @PrimaryKeyJoinColumn(name = "cadastro_id")
-    Cadastro cadastro;
+    @ManyToOne
+    @JoinColumn(name = "cadastro_id")
+    private Cadastro cadastro;
     @Column(name = "data_cadastro")
     private LocalDateTime dataCadastro;
     @Column(name = "data_update")
