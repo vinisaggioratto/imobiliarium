@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -24,7 +25,7 @@ public class CadastroDTO {
     private String cpfCnpj;
     @Column(length = 30)
     private String rg;
-    private Timestamp dataNascimento;
+    private LocalDate dataNascimento;
     @Email
     @Column(length = 100, nullable = false)
     private String email;

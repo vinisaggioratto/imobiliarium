@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -16,7 +17,7 @@ public class CadastroViewDTO {
     private String sobrenome;
     private String cpfCnpj;
     private String rg;
-    private Timestamp dataNascimento;
+    private LocalDate dataNascimento;
     private String email;
     private String telefoneCelular;
     private String sexo;
@@ -30,7 +31,7 @@ public class CadastroViewDTO {
     private LocalDateTime dataCadastro;
     private LocalDateTime dataUpdate;
 
-    public CadastroViewDTO(Long id, String nome, String sobrenome, String cpfCnpj, String rg, Timestamp dataNascimento,
+    public CadastroViewDTO(Long id, String nome, String sobrenome, String cpfCnpj, String rg, LocalDate dataNascimento,
                            String email, String telefoneCelular, String sexo, Boolean cadastroAtivo, String rua,
                            int numero, String bairro, String cidade, String cep, Estado estado,
                            LocalDateTime dataCadastro, LocalDateTime dataUpdate) {

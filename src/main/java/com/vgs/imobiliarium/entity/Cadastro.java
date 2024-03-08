@@ -4,7 +4,7 @@ import com.vgs.imobiliarium.enums.Estado;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,7 +25,7 @@ public class Cadastro {
     private String cpfCnpj;
     private String rg;
     @Column(name = "data_nascimento")
-    private Timestamp dataNascimento;
+    private LocalDate dataNascimento;
     private String email;
     @Column(name = "telefone_celular")
     private String telefoneCelular;

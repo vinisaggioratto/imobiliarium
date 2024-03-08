@@ -44,4 +44,25 @@ public class CadastroController {
                     HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PutMapping
+    public ResponseEntity put(@RequestBody @Valid CadastroDTO cadastro){
+        try {
+            return new ResponseEntity<>(service.update(cadastro), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("[Erro ao atualizar cadastro.] - " + e.getMessage(),
+                    HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id){
+        try {
+            return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("[Erro ao desativar cadastro.] - " + e.getMessage(),
+                    HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

@@ -4,7 +4,7 @@ CREATE TABLE cadastro(
     sobrenome VARCHAR(100) not null,
     cpf_cnpj VARCHAR(18) not null unique,
     rg VARCHAR(20) null,
-    data_nascimento TIMESTAMP not null,
+    data_nascimento DATETIME not null,
     email VARCHAR(100) NOT NULL,
     telefone_celular VARCHAR(15) NOT NULL,
     sexo CHAR(1) NULL,
@@ -15,8 +15,8 @@ CREATE TABLE cadastro(
     cidade VARCHAR(80) NULL,
     cep VARCHAR(10) NULL,
     estado TINYINT NULL,
-    data_cadastro TIMESTAMP NOT NULL,
-    data_update TIMESTAMP NOT NULL
+    data_cadastro DATETIME NOT NULL,
+    data_update DATETIME NOT NULL
 );
 
 CREATE TABLE usuarios(
@@ -24,8 +24,8 @@ CREATE TABLE usuarios(
     username VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     cadastro_id BIGINT NOT NULL,
-    data_cadastro TIMESTAMP NOT NULL,
-    data_update TIMESTAMP NOT NULL,
+    data_cadastro DATETIME NOT NULL,
+    data_update DATETIME NOT NULL,
     FOREIGN KEY (cadastro_id) REFERENCES cadastro (id)
 );
 
@@ -76,8 +76,8 @@ CREATE TABLE inquilino(
     data_admissao TIMESTAMP NOT NULL,
     dependentes INT NOT NULL,
     observacoes VARCHAR(1000) NULL,
-    data_cadastro TIMESTAMP NOT NULL,
-    data_update TIMESTAMP NOT NULL,
+    data_cadastro DATETIME NOT NULL,
+    data_update DATETIME NOT NULL,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (cliente_id) REFERENCES cliente (id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
@@ -89,10 +89,10 @@ CREATE TABLE funcionario(
     salario DOUBLE NOT NULL,
     comissao_id BIGINT NOT NULL,
     funcao VARCHAR(30) NOT NULL,
-    data_admissao TIMESTAMP NOT NULL,
-    data_demissao TIMESTAMP NULL,
-    data_cadastro TIMESTAMP NOT NULL,
-    data_update TIMESTAMP NOT NULL,
+    data_admissao DATETIME NOT NULL,
+    data_demissao DATETIME NULL,
+    data_cadastro DATETIME NOT NULL,
+    data_update DATETIME NOT NULL,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (cadastro_id) REFERENCES cadastro(id),
     FOREIGN KEY (comissao_id) REFERENCES comissao(id),
