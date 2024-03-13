@@ -23,8 +23,14 @@ public class Usuarios {
     @ManyToOne
     @JoinColumn(name = "cadastro_id")
     private Cadastro cadastro;
+    @Column(name = "cadastro_ativo")
+    private Boolean cadastroAtivo;
     @Column(name = "data_cadastro")
     private LocalDateTime dataCadastro;
     @Column(name = "data_update")
     private LocalDateTime dataUpdate;
+
+    public Usuarios(Long id) {
+        this.id = id;
+    }
 }

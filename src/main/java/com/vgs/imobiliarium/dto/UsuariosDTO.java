@@ -19,6 +19,7 @@ public class UsuariosDTO {
     @Column(length = 80)
     private String password;
     private Cadastro cadastro;
+    private Boolean cadastroAtivo;
     private LocalDateTime dataCadastro;
     private LocalDateTime dataUpdate;
 }

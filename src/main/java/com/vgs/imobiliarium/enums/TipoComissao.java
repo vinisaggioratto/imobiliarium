@@ -1,16 +1,18 @@
 package com.vgs.imobiliarium.enums;
 
 public enum TipoComissao {
-    ALUGUEL("ALUGUEL"),
-    VENDA("VENDA");
+    ALUGUEL,
+    VENDA
+//    ALUGUEL("ALUGUEL"),
+//    VENDA("VENDA");
 
-    private String tipoComissao;
-
-    TipoComissao(String tipoComissao){
-        this.tipoComissao = tipoComissao;
-    }
-
-    public String getTipoComissao() {
-        return tipoComissao;
-    }
+//    private String tipoComissao;
+//
+//    TipoComissao(String tipoComissao){
+//        this.tipoComissao = tipoComissao;
+//    }
+//
+//    public String getTipoComissao() {
+//        return tipoComissao;
+//    }
 }

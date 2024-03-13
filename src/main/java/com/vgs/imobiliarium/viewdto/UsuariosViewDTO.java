@@ -14,14 +14,16 @@ public class UsuariosViewDTO {
     private Long id;
     private String username;
     private String cadastro;
+    private Boolean cadastroAtivo;
     private LocalDateTime dataCadastro;
     private LocalDateTime dataUpdate;
 
-    public UsuariosViewDTO(Long id, String username, Cadastro cadastro, LocalDateTime dataCadastro,
-                           LocalDateTime dataUpdate) {
+    public UsuariosViewDTO(Long id, String username, Cadastro cadastro, Boolean cadastroAtivo,
+                           LocalDateTime dataCadastro, LocalDateTime dataUpdate) {
         this.id = id;
         this.username = username;
-        this.cadastro = cadastro.getNome() + " " + cadastro.getSobrenome();
+        this.cadastro = cadastro.getNome();
+        this.cadastroAtivo = cadastroAtivo;
         this.dataCadastro = dataCadastro;
         this.dataUpdate = dataUpdate;
     }

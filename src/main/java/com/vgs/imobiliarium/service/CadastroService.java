@@ -8,8 +8,6 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +24,7 @@ public class CadastroService {
     public List<CadastroViewDTO> getAll() {
         return repository.findAll().stream().map(
                 cadastro -> new CadastroViewDTO(
-                        cadastro.getId(), cadastro.getNome(), cadastro.getSobrenome(), cadastro.getCpfCnpj(),
+                        cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                         cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                         cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
                         cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
@@ -42,7 +40,7 @@ public class CadastroService {
         }
         Cadastro cadastro = optional.get();
         return new CadastroViewDTO(
-                cadastro.getId(), cadastro.getNome(), cadastro.getSobrenome(), cadastro.getCpfCnpj(),
+                cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
                 cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
@@ -56,7 +54,7 @@ public class CadastroService {
         Cadastro cadSave = mapper.map(cadastro, Cadastro.class);
         repository.save(cadSave);
         return new CadastroViewDTO(
-                cadastro.getId(), cadastro.getNome(), cadastro.getSobrenome(), cadastro.getCpfCnpj(),
+                cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
                 cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
@@ -73,7 +71,7 @@ public class CadastroService {
         }
         repository.save(cadSave);
         return new CadastroViewDTO(
-                cadastro.getId(), cadastro.getNome(), cadastro.getSobrenome(), cadastro.getCpfCnpj(),
+                cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
                 cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),

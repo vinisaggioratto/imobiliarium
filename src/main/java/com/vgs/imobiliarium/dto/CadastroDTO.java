@@ -6,9 +6,6 @@ import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -17,10 +14,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CadastroDTO {
     private Long id;
-    @Column(length = 100, nullable = false)
+    @Column(length = 200, nullable = false)
     private String nome;
-    @Column(length = 100, nullable = false)
-    private String sobrenome;
     @Column(length = 20, nullable = false, unique = true)
     private String cpfCnpj;
     @Column(length = 30)

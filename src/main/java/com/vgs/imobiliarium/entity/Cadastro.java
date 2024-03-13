@@ -20,7 +20,6 @@ public class Cadastro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String sobrenome;
     @Column(name = "cpf_cnpj")
     private String cpfCnpj;
     private String rg;

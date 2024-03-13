@@ -28,7 +28,7 @@ public class UsuariosService {
     public List<UsuariosViewDTO> getAll() {
         return repository.findAll().stream().map(
                 usuarios -> new UsuariosViewDTO(
-                        usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(),
+                        usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
                         usuarios.getDataCadastro(), usuarios.getDataUpdate()
                 )
         ).collect(Collectors.toList());
@@ -41,9 +41,8 @@ public class UsuariosService {
         }
         Usuarios usuarios = optional.get();
         return new UsuariosViewDTO(
-                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(),
-                usuarios.getDataCadastro(), usuarios.getDataUpdate()
-        );
+                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
+                usuarios.getDataCadastro(), usuarios.getDataUpdate());
     }
 
     @Transactional
@@ -54,7 +53,7 @@ public class UsuariosService {
         Usuarios usuSave = mapper.map(usuarios, Usuarios.class);
         repository.save(usuSave);
         return new UsuariosViewDTO(
-                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(),
+                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
                 usuarios.getDataCadastro(), usuarios.getDataUpdate());
     }
 
@@ -69,9 +68,8 @@ public class UsuariosService {
         }
         repository.save(usuSave);
         return new UsuariosViewDTO(
-                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(),
-                usuarios.getDataCadastro(), usuarios.getDataUpdate()
-        );
+                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
+                usuarios.getDataCadastro(), usuarios.getDataUpdate());
     }
 
     @Transactional

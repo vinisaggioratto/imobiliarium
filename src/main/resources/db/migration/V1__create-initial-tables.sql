@@ -1,7 +1,6 @@
 CREATE TABLE cadastro(
     id BIGINT primary key auto_increment,
-    nome VARCHAR(100) not null,
-    sobrenome VARCHAR(100) not null,
+    nome VARCHAR(200) not null,
     cpf_cnpj VARCHAR(18) not null unique,
     rg VARCHAR(20) null,
     data_nascimento DATETIME not null,
@@ -24,6 +23,7 @@ CREATE TABLE usuarios(
     username VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     cadastro_id BIGINT NOT NULL,
+    cadastro_ativo BOOLEAN,
     data_cadastro DATETIME NOT NULL,
     data_update DATETIME NOT NULL,
     FOREIGN KEY (cadastro_id) REFERENCES cadastro (id)
@@ -32,7 +32,8 @@ CREATE TABLE usuarios(
 CREATE TABLE comissao(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     percentual DOUBLE NOT NULL,
-    tipo_comissao VARCHAR(20) NOT NULL,
+    tipo_comissao TINYINT NOT NULL,
+    cadastro_ativo BOOLEAN,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
@@ -40,6 +41,7 @@ CREATE TABLE comissao(
 CREATE TABLE proprietario(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     cadastro_id BIGINT NOT NULL,
+    cadastro_ativo BOOLEAN,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (cadastro_id) REFERENCES cadastro(id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
@@ -51,6 +53,7 @@ CREATE TABLE corretor(
     numero_registro VARCHAR(20) NOT NULL,
     comissao_id BIGINT NOT NULL,
     especialidade VARCHAR(500) NOT NULL,
+    cadastro_ativo BOOLEAN,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (cadastro_id) REFERENCES cadastro(id),
     FOREIGN KEY (comissao_id) REFERENCES comissao(id),
@@ -62,6 +65,7 @@ CREATE TABLE cliente(
     cadastro_id BIGINT NOT NULL,
     preferencias VARCHAR(2000) NOT NULL,
     observacoes VARCHAR(1000) NULL,
+    cadastro_ativo BOOLEAN,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (cadastro_id) REFERENCES cadastro(id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
@@ -76,6 +80,7 @@ CREATE TABLE inquilino(
     data_admissao TIMESTAMP NOT NULL,
     dependentes INT NOT NULL,
     observacoes VARCHAR(1000) NULL,
+    cadastro_ativo BOOLEAN,
     data_cadastro DATETIME NOT NULL,
     data_update DATETIME NOT NULL,
     usuario_id BIGINT NOT NULL,
@@ -88,9 +93,10 @@ CREATE TABLE funcionario(
     cadastro_id BIGINT NOT NULL,
     salario DOUBLE NOT NULL,
     comissao_id BIGINT NOT NULL,
-    funcao VARCHAR(30) NOT NULL,
+    funcao TINYINT NOT NULL,
     data_admissao DATETIME NOT NULL,
     data_demissao DATETIME NULL,
+    cadastro_ativo BOOLEAN,
     data_cadastro DATETIME NOT NULL,
     data_update DATETIME NOT NULL,
     usuario_id BIGINT NOT NULL,

@@ -20,17 +20,15 @@ CREATE TABLE caracteristicas(
     facil_acesso BOOLEAN,
     energia_eletrica BOOLEAN,
     agua_poco BOOLEAN,
-    agua_concessionaria BOOLEAN,
-    usuario_id BIGINT NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+    agua_concessionaria BOOLEAN
 );
 
 CREATE TABLE imovel(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     descricao VARCHAR(500) NOT NULL,
     proprietario_id BIGINT NOT NULL,
-    tipo_imovel VARCHAR(50) NOT NULL,
-    finalidade_imovel VARCHAR(20) NOT NULL,
+    tipo_imovel TINYINT NOT NULL,
+    finalidade_imovel TINYINT NOT NULL,
     valor_minimo_venda DOUBLE NOT NULL,
     valor_minimo_aluguel DOUBLE NOT NULL,
     comissao_id BIGINT NOT NULL,
@@ -42,10 +40,11 @@ CREATE TABLE imovel(
     cep VARCHAR(10) NULL,
     estado TINYINT NULL,
     observacoes VARCHAR(500) NULL,
-    status_imovel VARCHAR(20) NOT NULL,
+    status_imovel TINYINT NOT NULL,
     caracteristicas_id BIGINT NOT NULL,
     tamanho_terreno DOUBLE NOT NULL,
     tamanho_casa DOUBLE NOT NULL,
+    cadastro_ativo BOOLEAN,
     data_cadastro DATETIME NOT NULL,
     data_update DATETIME NOT NULL,
     usuario_id BIGINT NOT NULL,
@@ -59,9 +58,8 @@ CREATE TABLE foto_imovel(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     imovel_id BIGINT NOT NULL,
     endereco_foto VARCHAR(300) NOT NULL,
-    usuario_id BIGINT NOT NULL,
-    FOREIGN KEY (imovel_id) REFERENCES imovel(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+    cadastro_ativo BOOLEAN,
+    FOREIGN KEY (imovel_id) REFERENCES imovel(id)
 );
 
 CREATE TABLE vistoria(

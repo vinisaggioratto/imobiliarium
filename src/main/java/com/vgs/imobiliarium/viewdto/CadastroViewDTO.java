@@ -14,7 +14,6 @@ public class CadastroViewDTO {
 
     private Long id;
     private String nome;
-    private String sobrenome;
     private String cpfCnpj;
     private String rg;
     private LocalDate dataNascimento;
@@ -31,13 +30,12 @@ public class CadastroViewDTO {
     private LocalDateTime dataCadastro;
     private LocalDateTime dataUpdate;
 
-    public CadastroViewDTO(Long id, String nome, String sobrenome, String cpfCnpj, String rg, LocalDate dataNascimento,
+    public CadastroViewDTO(Long id, String nome, String cpfCnpj, String rg, LocalDate dataNascimento,
                            String email, String telefoneCelular, String sexo, Boolean cadastroAtivo, String rua,
                            int numero, String bairro, String cidade, String cep, Estado estado,
                            LocalDateTime dataCadastro, LocalDateTime dataUpdate) {
         this.id = id;
         this.nome = nome;
-        this.sobrenome = sobrenome;
         this.cpfCnpj = cpfCnpj;
         this.rg = rg;
         this.dataNascimento = dataNascimento;
