@@ -14,7 +14,7 @@ CREATE TABLE cadastro(
     cidade VARCHAR(80) NULL,
     cep VARCHAR(10) NULL,
     estado TINYINT NULL,
-    data_cadastro DATETIME NOT NULL,
+    data_cadastro DATETIME NULL,
     data_update DATETIME NOT NULL
 );
 

@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
-@Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -37,7 +37,7 @@ public class Cadastro {
     private String cidade;
     private String cep;
     private Estado estado;
-    @Column(name = "data_cadastro")
+    @Column(name = "data_cadastro", updatable=false)
     private LocalDateTime dataCadastro;
     @Column(name = "data_update")
     private LocalDateTime dataUpdate;
@@ -45,4 +45,15 @@ public class Cadastro {
     public Cadastro(Long id) {
         this.id = id;
     }
+
+    @PrePersist
+    public void onPrePersist(){
+        this.setDataCadastro(LocalDateTime.now());
+        this.setDataUpdate(LocalDateTime.now());
+    }
+    @PreUpdate
+    public void onPreUpdate(){
+        this.setDataUpdate(LocalDateTime.now());
+    }
+
 }

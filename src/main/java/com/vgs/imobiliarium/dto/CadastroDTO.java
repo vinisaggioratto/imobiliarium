@@ -4,12 +4,15 @@ import com.vgs.imobiliarium.enums.Estado;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CadastroDTO {
@@ -40,7 +43,7 @@ public class CadastroDTO {
     private String cep;
     @Column(length = 2)
     private Estado estado;
-    private LocalDateTime dataCadastro;
-    private LocalDateTime dataUpdate;
+    //private LocalDateTime dataCadastro;
+    //private LocalDateTime dataUpdate;
 
 }

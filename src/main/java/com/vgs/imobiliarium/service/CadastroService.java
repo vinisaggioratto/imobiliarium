@@ -8,7 +8,6 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -49,33 +48,32 @@ public class CadastroService {
 
     @Transactional
     public CadastroViewDTO save(CadastroDTO cadastro) {
-        cadastro.setDataCadastro(LocalDateTime.now());
-        cadastro.setDataUpdate(LocalDateTime.now());
         Cadastro cadSave = mapper.map(cadastro, Cadastro.class);
         repository.save(cadSave);
+
         return new CadastroViewDTO(
                 cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
-                cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
-                cadastro.getDataCadastro(), cadastro.getDataUpdate());
+                cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado());
     }
 
     @Transactional
     public CadastroViewDTO update(CadastroDTO cadastro){
-        cadastro.setDataUpdate(LocalDateTime.now());
-        Cadastro cadSave = mapper.map(cadastro, Cadastro.class);
+        //cadastro.setDataUpdate(LocalDateTime.now());
         Optional<Cadastro> optional = repository.findById(cadastro.getId());
         if (!optional.isPresent()){
             throw new RuntimeException("Cadastro não localizado.");
         }
+        Cadastro cadSave = mapper.map(cadastro, Cadastro.class);
+        CadastroViewDTO cadView = new CadastroViewDTO(cadastro);
         repository.save(cadSave);
         return new CadastroViewDTO(
                 cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
                 cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
-                cadastro.getDataCadastro(), cadastro.getDataUpdate()
+                cadView.getDataCadastro(), cadView.getDataUpdate()
         );
     }
 
