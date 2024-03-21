@@ -66,7 +66,9 @@ public class UsuariosService {
         if (!optional.isPresent()){
             throw new RuntimeException("Usuário não localizado.");
         }
-        repository.deleteById(id);
-        return "Usuário excluído com sucesso.";
+        Usuarios usuarios = optional.get();
+        usuarios.setCadastroAtivo(false);
+        repository.save(usuarios);
+        return "Usuário desativado com sucesso.";
     }
 }

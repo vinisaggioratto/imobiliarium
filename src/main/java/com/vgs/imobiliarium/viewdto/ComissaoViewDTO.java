@@ -22,6 +22,6 @@ public class ComissaoViewDTO {
         this.percentual = percentual;
         this.tipoComissao = tipoComissao.name();
         this.cadastroAtivo = cadastroAtivo;
-        this.usuarios = usuarios.getUsername();
+        this.usuarios = "Cadastrado por: " + usuarios.getUsername();
     }
 }
