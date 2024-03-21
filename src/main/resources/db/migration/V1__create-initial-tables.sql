@@ -34,6 +34,7 @@ CREATE TABLE comissao(
     percentual DOUBLE NOT NULL,
     tipo_comissao TINYINT NOT NULL,
     cadastro_ativo BOOLEAN,
+    data_cadastro DATETIME NULL,
     usuario_id BIGINT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );

@@ -3,7 +3,6 @@ package com.vgs.imobiliarium.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,12 +24,23 @@ public class Usuarios {
     private Cadastro cadastro;
     @Column(name = "cadastro_ativo")
     private Boolean cadastroAtivo;
-    @Column(name = "data_cadastro")
-    private LocalDateTime dataCadastro;
+    @Column(name = "data_cadastro", updatable=false)
+    private LocalDateTime dataCadastroUser;
     @Column(name = "data_update")
-    private LocalDateTime dataUpdate;
+    private LocalDateTime dataUpdateUser;
 
     public Usuarios(Long id) {
         this.id = id;
+    }
+
+    @PrePersist
+    public void onPrePersist() {
+        this.setDataCadastroUser(LocalDateTime.now());
+        this.setDataUpdateUser(LocalDateTime.now());
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {
+        this.setDataUpdateUser(LocalDateTime.now());
     }
 }

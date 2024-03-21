@@ -20,6 +20,4 @@ public class UsuariosDTO {
     private String password;
     private Cadastro cadastro;
     private Boolean cadastroAtivo;
-    private LocalDateTime dataCadastro;
-    private LocalDateTime dataUpdate;
 }

@@ -26,8 +26,7 @@ public class CadastroService {
                         cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                         cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                         cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
-                        cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
-                        cadastro.getDataCadastro(), cadastro.getDataUpdate()
+                        cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado()
                 )
         ).collect(Collectors.toList());
     }
@@ -42,8 +41,7 @@ public class CadastroService {
                 cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
-                cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
-                cadastro.getDataCadastro(), cadastro.getDataUpdate());
+                cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado());
     }
 
     @Transactional
@@ -66,14 +64,12 @@ public class CadastroService {
             throw new RuntimeException("Cadastro não localizado.");
         }
         Cadastro cadSave = mapper.map(cadastro, Cadastro.class);
-        CadastroViewDTO cadView = new CadastroViewDTO(cadastro);
         repository.save(cadSave);
         return new CadastroViewDTO(
                 cadastro.getId(), cadastro.getNome(), cadastro.getCpfCnpj(),
                 cadastro.getRg(), cadastro.getDataNascimento(), cadastro.getEmail(), cadastro.getTelefoneCelular(),
                 cadastro.getSexo(), cadastro.getCadastroAtivo(), cadastro.getRua(), cadastro.getNumero(),
-                cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado(),
-                cadView.getDataCadastro(), cadView.getDataUpdate()
+                cadastro.getBairro(), cadastro.getCidade(), cadastro.getCep(), cadastro.getEstado()
         );
     }
 

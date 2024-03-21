@@ -1,19 +1,15 @@
 package com.vgs.imobiliarium.service;
 
-import com.vgs.imobiliarium.dto.CadastroDTO;
 import com.vgs.imobiliarium.dto.UsuariosDTO;
-import com.vgs.imobiliarium.entity.Cadastro;
 import com.vgs.imobiliarium.entity.Usuarios;
 import com.vgs.imobiliarium.repository.UsuariosRepository;
 import com.vgs.imobiliarium.security.SecurityConfig;
-import com.vgs.imobiliarium.viewdto.CadastroViewDTO;
 import com.vgs.imobiliarium.viewdto.UsuariosViewDTO;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,9 +24,7 @@ public class UsuariosService {
     public List<UsuariosViewDTO> getAll() {
         return repository.findAll().stream().map(
                 usuarios -> new UsuariosViewDTO(
-                        usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
-                        usuarios.getDataCadastro(), usuarios.getDataUpdate()
-                )
+                        usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo())
         ).collect(Collectors.toList());
     }
 
@@ -41,25 +35,20 @@ public class UsuariosService {
         }
         Usuarios usuarios = optional.get();
         return new UsuariosViewDTO(
-                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
-                usuarios.getDataCadastro(), usuarios.getDataUpdate());
+                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo());
     }
 
     @Transactional
     public UsuariosViewDTO save(UsuariosDTO usuarios) {
-        usuarios.setDataCadastro(LocalDateTime.now());
-        usuarios.setDataUpdate(LocalDateTime.now());
         usuarios.setPassword(SecurityConfig.passwordEncoder().encode(usuarios.getPassword()));
         Usuarios usuSave = mapper.map(usuarios, Usuarios.class);
         repository.save(usuSave);
         return new UsuariosViewDTO(
-                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
-                usuarios.getDataCadastro(), usuarios.getDataUpdate());
+                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo());
     }
 
     @Transactional
     public UsuariosViewDTO update(UsuariosDTO usuarios){
-        usuarios.setDataUpdate(LocalDateTime.now());
         usuarios.setPassword(SecurityConfig.passwordEncoder().encode(usuarios.getPassword()));
         Usuarios usuSave = mapper.map(usuarios, Usuarios.class);
         Optional<Usuarios> optional = repository.findById(usuarios.getId());
@@ -68,8 +57,7 @@ public class UsuariosService {
         }
         repository.save(usuSave);
         return new UsuariosViewDTO(
-                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo(),
-                usuarios.getDataCadastro(), usuarios.getDataUpdate());
+                usuarios.getId(), usuarios.getUsername(), usuarios.getCadastro(), usuarios.getCadastroAtivo());
     }
 
     @Transactional

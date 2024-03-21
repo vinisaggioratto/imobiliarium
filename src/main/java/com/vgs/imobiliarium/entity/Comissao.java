@@ -4,6 +4,8 @@ import com.vgs.imobiliarium.enums.TipoComissao;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -25,6 +27,14 @@ public class Comissao {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuarios usuarios;
+
+    @Column(name = "data_cadastro", updatable=false)
+    private LocalDateTime dataCadastroComissao;
+
+    @PrePersist
+    public void onPrePersist(){
+        this.setDataCadastroComissao(LocalDateTime.now());
+    }
 
     public Comissao(Long id) {
         this.id = id;

@@ -28,31 +28,6 @@ public class CadastroViewDTO {
     private String cidade;
     private String cep;
     private Estado estado;
-    private LocalDateTime dataCadastro;
-    private LocalDateTime dataUpdate;
-
-    public CadastroViewDTO(Long id, String nome, String cpfCnpj, String rg, LocalDate dataNascimento,
-                           String email, String telefoneCelular, String sexo, Boolean cadastroAtivo, String rua,
-                           int numero, String bairro, String cidade, String cep, Estado estado,
-                           LocalDateTime dataCadastro, LocalDateTime dataUpdate) {
-        this.id = id;
-        this.nome = nome;
-        this.cpfCnpj = cpfCnpj;
-        this.rg = rg;
-        this.dataNascimento = dataNascimento;
-        this.email = email;
-        this.telefoneCelular = telefoneCelular;
-        this.sexo = sexo;
-        this.cadastroAtivo = cadastroAtivo;
-        this.rua = rua;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.cep = cep;
-        this.estado = estado;
-        this.dataCadastro = dataCadastro;
-        this.dataUpdate = dataUpdate;
-    }
 
     public CadastroViewDTO(Long id, String nome, String cpfCnpj, String rg, LocalDate dataNascimento,
                            String email, String telefoneCelular, String sexo, Boolean cadastroAtivo, String rua,
@@ -72,9 +47,5 @@ public class CadastroViewDTO {
         this.cidade = cidade;
         this.cep = cep;
         this.estado = estado;
-    }
-
-    public CadastroViewDTO(CadastroDTO cadastro) {
-
     }
 }
