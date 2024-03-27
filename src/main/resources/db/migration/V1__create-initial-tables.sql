@@ -74,7 +74,7 @@ CREATE TABLE cliente(
 
 CREATE TABLE inquilino(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    cliente_id BIGINT NOT NULL,
+    cadastro_id BIGINT NOT NULL,
     salario_mensal DOUBLE NOT NULL,
     empresa_trabalho VARCHAR(100) NOT NULL,
     funcao VARCHAR(100) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE inquilino(
     data_cadastro DATETIME NOT NULL,
     data_update DATETIME NOT NULL,
     usuario_id BIGINT NOT NULL,
-    FOREIGN KEY (cliente_id) REFERENCES cliente (id),
+    FOREIGN KEY (cadastro_id) REFERENCES cadastro (id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
