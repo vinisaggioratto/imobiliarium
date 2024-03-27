@@ -58,7 +58,6 @@ public class CadastroService {
 
     @Transactional
     public CadastroViewDTO update(CadastroDTO cadastro){
-        //cadastro.setDataUpdate(LocalDateTime.now());
         Optional<Cadastro> optional = repository.findById(cadastro.getId());
         if (!optional.isPresent()){
             throw new RuntimeException("Cadastro não localizado.");
