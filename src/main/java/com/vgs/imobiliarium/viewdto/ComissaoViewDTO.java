@@ -15,13 +15,13 @@ public class ComissaoViewDTO {
     private Double percentual;
     private String tipoComissao;
     private Boolean cadastroAtivo;
-    private String usuarios;
+    private String usuario;
 
-    public ComissaoViewDTO(Long id, Double percentual, TipoComissao tipoComissao, Boolean cadastroAtivo, Usuarios usuarios) {
+    public ComissaoViewDTO(Long id, Double percentual, TipoComissao tipoComissao, Boolean cadastroAtivo, Usuarios usuario) {
         this.id = id;
         this.percentual = percentual;
         this.tipoComissao = tipoComissao.name();
         this.cadastroAtivo = cadastroAtivo;
-        this.usuarios = "Cadastrado por: " + usuarios.getUsername();
+        this.usuario = "Cadastrado por: " + usuario.getUsername();
     }
 }

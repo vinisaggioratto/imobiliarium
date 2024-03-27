@@ -2,7 +2,6 @@ package com.vgs.imobiliarium.service;
 
 import com.vgs.imobiliarium.dto.ComissaoDTO;
 import com.vgs.imobiliarium.entity.Comissao;
-import com.vgs.imobiliarium.enums.TipoComissao;
 import com.vgs.imobiliarium.repository.ComissaoRepository;
 import com.vgs.imobiliarium.viewdto.ComissaoViewDTO;
 import jakarta.transaction.Transactional;
@@ -25,7 +24,7 @@ public class ComissaoService {
         return repository.findAll().stream().map(
                 comissao -> new ComissaoViewDTO(
                     comissao.getId(), comissao.getPercentual(), comissao.getTipoComissao(),
-                        comissao.getCadastroAtivo(), comissao.getUsuarios()
+                        comissao.getCadastroAtivo(), comissao.getUsuario()
                 )
         ).collect(Collectors.toList());
     }
@@ -38,7 +37,7 @@ public class ComissaoService {
         Comissao comissao = optional.get();
         return new ComissaoViewDTO(
                 comissao.getId(), comissao.getPercentual(), comissao.getTipoComissao(),
-                comissao.getCadastroAtivo(), comissao.getUsuarios());
+                comissao.getCadastroAtivo(), comissao.getUsuario());
     }
 
     @Transactional
@@ -47,7 +46,7 @@ public class ComissaoService {
         repository.save(comSave);
         return new ComissaoViewDTO(
                 comissao.getId(), comissao.getPercentual(), comissao.getTipoComissao(),
-                comissao.getCadastroAtivo(), comissao.getUsuarios());
+                comissao.getCadastroAtivo(), comissao.getUsuario());
     }
 
     @Transactional
@@ -60,7 +59,7 @@ public class ComissaoService {
         repository.save(comSave);
         return new ComissaoViewDTO(
                 comissao.getId(), comissao.getPercentual(), comissao.getTipoComissao(),
-                comissao.getCadastroAtivo(), comissao.getUsuarios());
+                comissao.getCadastroAtivo(), comissao.getUsuario());
     }
 
     @Transactional

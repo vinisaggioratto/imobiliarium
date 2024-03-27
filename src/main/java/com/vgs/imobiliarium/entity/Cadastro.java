@@ -38,9 +38,9 @@ public class Cadastro {
     private String cep;
     private Estado estado;
     @Column(name = "data_cadastro", updatable=false)
-    private LocalDateTime dataCadastro;
+    private LocalDateTime dataCadastroCadastro;
     @Column(name = "data_update")
-    private LocalDateTime dataUpdate;
+    private LocalDateTime dataUpdateCadastro;
 
     public Cadastro(Long id) {
         this.id = id;
@@ -48,12 +48,12 @@ public class Cadastro {
 
     @PrePersist
     public void onPrePersist(){
-        this.setDataCadastro(LocalDateTime.now());
-        this.setDataUpdate(LocalDateTime.now());
+        this.setDataCadastroCadastro(LocalDateTime.now());
+        this.setDataUpdateCadastro(LocalDateTime.now());
     }
     @PreUpdate
     public void onPreUpdate(){
-        this.setDataUpdate(LocalDateTime.now());
+        this.setDataUpdateCadastro(LocalDateTime.now());
     }
 
 }

@@ -2,13 +2,12 @@ package com.vgs.imobiliarium.dto;
 
 import com.vgs.imobiliarium.entity.Cadastro;
 import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuariosDTO {

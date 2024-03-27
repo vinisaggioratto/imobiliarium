@@ -26,13 +26,13 @@ public class Comissao {
     private Boolean cadastroAtivo;
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private Usuarios usuarios;
+    private Usuarios usuario;
 
-    @Column(name = "data_cadastro", updatable=false)
+    @Column(name = "data_cadastro", updatable = false)
     private LocalDateTime dataCadastroComissao;
 
     @PrePersist
-    public void onPrePersist(){
+    public void onPrePersist() {
         this.setDataCadastroComissao(LocalDateTime.now());
     }
 

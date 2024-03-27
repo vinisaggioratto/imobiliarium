@@ -1,15 +1,15 @@
 package com.vgs.imobiliarium.viewdto;
 
-import com.vgs.imobiliarium.dto.CadastroDTO;
 import com.vgs.imobiliarium.enums.Estado;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 public class CadastroViewDTO {
 

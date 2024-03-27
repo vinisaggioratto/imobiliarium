@@ -15,5 +15,5 @@ public class ComissaoDTO {
     private Double percentual;
     private TipoComissao tipoComissao;
     private Boolean cadastroAtivo;
-    private Usuarios usuarios;
+    private Usuarios usuario;
 }
