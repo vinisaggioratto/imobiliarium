@@ -88,6 +88,7 @@ public class InquilinoService {
             throw new RuntimeException("Inquilino não localizado.");
         }
         Inquilino inqSave = optional.get();
+        inqSave.setDataUpdateInquilino(LocalDateTime.now());
         inqSave.setCadastroAtivo(false);
         repository.save(inqSave);
         return "Inquilino desativado com sucesso.";
